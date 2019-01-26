@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<?php include 'fonction.php'; ?>
     <table>
         
     </table>
