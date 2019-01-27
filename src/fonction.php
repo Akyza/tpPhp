@@ -2,7 +2,6 @@
 
 ///insert update et select * + un seul
 
-
 //Gestion de compte
 function insertUser($username, $password){
     $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
@@ -29,4 +28,17 @@ function verifConnexion($username, $password){
     }else{
         echo 'erreur';
     }
+}
+
+///gestion articles et commentaires
+
+function addArticle($title, $content, $author){
+    $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
+    $query = "INSERT INTO FROM article (title, content, author) VALUES (:title, :content, :author)";
+    $statement = $pdo->prepare($query);
+    $statement->execute([
+        ':title'=>$title,
+        ':content'=>$content,
+        ':author'=>$author,
+    ]);
 }
