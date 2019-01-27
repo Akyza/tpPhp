@@ -1,12 +1,13 @@
 <?php
-include 'fonction.php';
+require_once 'fonction.php';
 
 if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confPassword'])){
     if($_POST['password'] === $_POST['confPassword']){
-        $username = $_POST['usernanme'];
+        $username = $_POST['username'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        echo 'test';
         insertUser($username, $password);
+        session_start();
+        herder('Location: index.php');
     }
     else{
         echo 'erreur';
