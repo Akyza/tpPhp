@@ -12,13 +12,13 @@
 <body>
     <form action="traitInscription.php" method="post">
         <label for="username">Username : </label>
-        <input type="text" name="username">
+        <input type="text" name="username" require>
         <p></p>
         <label for="password">Password : </label>
-        <input type="password" name="password">
+        <input type="password" name="password" require>
         <p></p>
         <label for="confPassword">Confirm Password : </label>
-        <input type="password" name="confPassword">
+        <input type="password" name="confPassword" require>
         <p></p>
         <input type="submit" name="submit" value="submit">
     </form>
