@@ -7,7 +7,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['co
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         insertUser($username, $password);
         session_start();
-        herder('Location: index.php');
+        header('Location: index.php');
     }
     else{
         echo 'erreur';
