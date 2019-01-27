@@ -23,7 +23,6 @@
     <a href="inscription.php">Sign In</a>
 
 <?php else: echo 'Bonjour '.$_SESSION['user']; ?>
-
     <form action="traitConnexion.php" method="post">
         <input type="submit" name="subDeco" value="Déconnexion">
     </form>

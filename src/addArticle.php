@@ -13,13 +13,17 @@ if($_SESSION['user']){ ?>
         <title>Ajouter un article</title>
     </head>
     <body>
+        <a href='index.php'><input type="button" value="Retour"></a>
+        <br>
         <h2>Ajouter un article</h2>
         <form action="traitArticle.php" method="post">
             <label for="title">Titre de l'article :</label>
             <input type="text" name="title">
             <p>Contenu de l'article : </p>
             <textarea name="content" cols="40" rows="10" maxlenght='250'></textarea>
-            <input type="hidden" name="author" value="$_SESSION['user']">
+            <input type="hidden" name="author" value="<?= $_SESSION['user'] ?>">
+            <br>
+            <input type=submit name="addArticle" value="Envoyer">
         </form>
     </body>
     </html>
