@@ -8,7 +8,7 @@ if($_POST['addArticle']){
         $content = $_POST['content'];
         $author = $_POST['author'];
         addArticle($title, $content, $author);
-        //header('Location: ../index.php');
+        header('Location: ../index.php');
     }else{
         header('Location: ../addArticle.php');
     }

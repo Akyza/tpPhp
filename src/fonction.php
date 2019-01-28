@@ -23,6 +23,7 @@ function verifConnexion(string $username, $password){
     ]);
     $data = $statement->fetch(PDO::FETCH_ASSOC);
     if(password_verify($password, $data['password'])){
+        $_SESSION['id_user'] = $data['id_user'];
         $_SESSION['user'] = $username;
         header('Location: index.php');
     }else{
@@ -31,13 +32,27 @@ function verifConnexion(string $username, $password){
 }
 
 ///gestion articles et commentaires
-function addArticle(string $title, string $content, string $author){
+function addArticle(string $title, string $content, int $author){
     $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
     $query = "INSERT INTO article (title, content, author) VALUES(:title, :content, :author)";
     $statement = $pdo->prepare($query);
-    $statement->execute(array(
+    $statement->execute([
         ':title' => $title,
         ':content' => $content,
         ':author' => $author,
-    ));
+    ]);
+}
+
+function getAllArticle(){
+    $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
+    $query = "SELECT * FROM article ORDER BY id_article DESC LIMIT 5";
+    $statement = $pdo->prepare($query);
+    $statement->execute();
+    while($data = $statement->fetch(PDO::FETCH_ASSOC)){
+        echo '<tr>',
+            '<td>'.$data['title'].'</td>',
+            '<td>'.$data['content'].'</td>',
+            '<td><a href="viewArticle.php?id_article='.$data['id_article'].'">Voir plus</a></td>',
+            '</tr>';
+    }
 }

@@ -32,7 +32,9 @@
     
     <table class="table" border="1">
        <th>Title</th>
-       <th>Description</th> 
+       <th>Description</th>
+       <th>Action</th>
+       <?php getAllArticle(); ?> 
     </table>
 </body>
 </html>

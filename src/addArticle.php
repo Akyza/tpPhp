@@ -21,7 +21,7 @@ if($_SESSION['user']){ ?>
             <input type="text" name="title">
             <p>Contenu de l'article : </p>
             <textarea name="content" cols="40" rows="10" maxlenght='250'></textarea>
-            <input type="hidden" name="author" value="<?= $_SESSION['user'] ?>">
+            <input type="hidden" name="author" value="<?= $_SESSION['id_user'] ?>">
             <br>
             <input type=submit name="addArticle" value="Envoyer">
         </form>
