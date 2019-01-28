@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="traitInscription.php" method="post">
+    <form action="traitement/traitInscription.php" method="post">
         <label for="username">Username : </label>
         <input type="text" name="username" required>
         <p></p>

@@ -11,7 +11,7 @@
 <body>
 <?php include 'fonction.php'; ?>
 <?php if (!$_SESSION) : ?>
-    <form action="traitConnexion.php" method="post">
+    <form action="traitement/traitConnexion.php" method="post">
         <label for="username">Username : </label>
         <input type="text" name="username" required>
         <p></p>
@@ -23,7 +23,7 @@
     <a href="inscription.php">Sign In</a>
 
 <?php else: echo 'Bonjour '.$_SESSION['user']; ?>
-    <form action="traitConnexion.php" method="post">
+    <form action="traitement/traitConnexion.php" method="post">
         <input type="submit" name="subDeco" value="Déconnexion">
     </form>
     <a href="addArticle.php"><input type="button" name="addArticle" value="Ajouter un article"></a>

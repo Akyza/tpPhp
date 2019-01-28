@@ -16,7 +16,7 @@ if($_SESSION['user']){ ?>
         <a href='index.php'><input type="button" value="Retour"></a>
         <br>
         <h2>Ajouter un article</h2>
-        <form action="traitArticle.php" method="post">
+        <form action="traitement/traitArticle.php" method="post">
             <label for="title">Titre de l'article :</label>
             <input type="text" name="title">
             <p>Contenu de l'article : </p>
