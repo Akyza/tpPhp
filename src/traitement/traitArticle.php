@@ -1,6 +1,6 @@
 <?php
 
-require_once 'fonction.php';
+require_once '../fonction.php';
 
 if($_POST['addArticle']){
     if(!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['author'])){
@@ -8,8 +8,8 @@ if($_POST['addArticle']){
         $content = $_POST['content'];
         $author = $_POST['author'];
         addArticle($title, $content, $author);
-        //header('Location: index.php');
+        //header('Location: ../index.php');
     }else{
-        header('Location: addArticle.php');
+        header('Location: ../addArticle.php');
     }
 }

@@ -35,9 +35,9 @@ function addArticle(string $title, string $content, string $author){
     $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
     $query = "INSERT INTO article (title, content, author) VALUES(:title, :content, :author)";
     $statement = $pdo->prepare($query);
-    $statement->execute([
+    $statement->execute(array(
         ':title' => $title,
         ':content' => $content,
         ':author' => $author,
-    ]);
+    ));
 }
