@@ -74,8 +74,22 @@ function postComment(int $idArticle, string $author, string $content){
     $query = "INSERT INTO commentaire (username, content, article_id) VALUES(:user, :content, :idArticle)";
     $statement = $pdo->prepare($query);
     $statement->execute([
-        ':user' => $username,
+        ':user' => $author,
         ':content' => $content,
         ':idArticle' => $idArticle,
     ]);
+}
+
+function getCommentsById(int $idArticle){
+    $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
+    $query = "SELECT * FROM commentaire WHERE article_id = :idArticle ORDER BY id_comment DESC";
+    $statement = $pdo->prepare($query);
+    $statement->execute([
+        ':idArticle' => $idArticle,
+    ]);
+    while($data = $statement->fetch(PDO::FETCH_ASSOC)){
+    
+    echo '<tr><td><em>'.$data['username'].'</em></td>',
+        '<td>'.$data['content'].'</td></tr>';
+    }
 }
