@@ -56,3 +56,26 @@ function getAllArticle(){
             '</tr>';
     }
 }
+function getArticle(int $idArticle){
+    $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
+    $query = "SELECT a.*, u.username as user FROM article a INNER JOIN users u ON a.author = u.id_user WHERE id_article = :idArticle";
+    $statement = $pdo->prepare($query);
+    $statement->execute([
+        ':idArticle' => $idArticle,
+    ]);
+    $data = $statement->fetch();
+    echo '<th>'.$data['title'].'</th>';
+    echo '<tr><td><em>'.$data['user'].'</em></td>',
+        '<td>'.$data['content'].'</td></tr>';
+}
+
+function postComment(int $idArticle, string $author, string $content){
+    $pdo = new PDO('mysql:host=database; dbname=ma_db', 'mon_user', 'secret!');
+    $query = "INSERT INTO commentaire (username, content, article_id) VALUES(:user, :content, :idArticle)";
+    $statement = $pdo->prepare($query);
+    $statement->execute([
+        ':user' => $username,
+        ':content' => $content,
+        ':idArticle' => $idArticle,
+    ]);
+}
