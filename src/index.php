@@ -12,25 +12,31 @@
 <?php include 'fonction.php'; ?>
 <?php if (!$_SESSION) : ?>
     <form action="traitement/traitConnexion.php" method="post">
-        <label for="username">Username : </label>
-        <input type="text" name="username" required>
+    <div class="form-row">
+        <div class="col">
+            <label for="username">Username : </label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
         <p></p>
-        <label for="password">Password : </label>
-        <input type="password" name="password" redquired>
+        <div class="col">
+            <label for="password">Password : </label>
+            <input type="password" class="form-control" name="password" redquired>
+        </div>
         <p></p>
-        <input type="submit" name="submit" value="submit">
+    </div>
+    <input type="submit" class="btn btn-primary btn-sm" name="submit" value="submit">
+    <a href="inscription.php"><input type="button" class="btn btn-primary btn-sm" value="Sign In"></a>
     </form>
-    <a href="inscription.php">Sign In</a>
 
 <?php else: echo 'Bonjour '.$_SESSION['user']; ?>
     <form action="traitement/traitConnexion.php" method="post">
-        <input type="submit" name="subDeco" value="Déconnexion">
+        <input type="submit" class="btn btn-primary btn-sm" name="subDeco" value="Déconnexion">
     </form>
-    <a href="addArticle.php"><input type="button" name="addArticle" value="Ajouter un article"></a>
+    <a href="addArticle.php"><input type="button" class="btn btn-primary" name="addArticle" value="Ajouter un article"></a>
 
 <?php endif; ?>
     
-    <table class="table" border="1">
+    <table class="table table-striped table-bordered">
        <th>Title</th>
        <th>Description</th>
        <th>Action</th>
