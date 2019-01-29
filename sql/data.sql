@@ -1,5 +1,5 @@
 -- Adminer 4.7.0 MySQL dump
--- By Bryce Tavares
+-- By Akyza
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
